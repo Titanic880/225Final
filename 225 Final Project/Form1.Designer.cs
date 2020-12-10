@@ -33,6 +33,7 @@
             this.btnAddProj = new System.Windows.Forms.Button();
             this.btnErrorChage = new System.Windows.Forms.Button();
             this.btnRecheck = new System.Windows.Forms.Button();
+            this.btnGit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRunProject
@@ -81,18 +82,29 @@
             this.btnRecheck.TabIndex = 5;
             this.btnRecheck.Text = "Rerun Startup Checks";
             this.btnRecheck.UseVisualStyleBackColor = true;
-            this.btnRecheck.Click += new System.EventHandler(this.btnRecheck_Click);
+            this.btnRecheck.Click += new System.EventHandler(this.BtnRecheck_Click);
+            // 
+            // btnGit
+            // 
+            this.btnGit.Location = new System.Drawing.Point(17, 454);
+            this.btnGit.Name = "btnGit";
+            this.btnGit.Size = new System.Drawing.Size(115, 30);
+            this.btnGit.TabIndex = 6;
+            this.btnGit.Text = "Clone From Github";
+            this.btnGit.UseVisualStyleBackColor = true;
+            this.btnGit.Click += new System.EventHandler(this.BtnGit_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 469);
-            this.Controls.Add(this.btnRecheck);
+            this.ClientSize = new System.Drawing.Size(267, 508);
+            this.Controls.Add(this.btnGit);
             this.Controls.Add(this.btnErrorChage);
             this.Controls.Add(this.btnAddProj);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnRunProject);
+            this.Controls.Add(this.btnRecheck);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -105,6 +117,7 @@
         private System.Windows.Forms.Button btnAddProj;
         private System.Windows.Forms.Button btnErrorChage;
         private System.Windows.Forms.Button btnRecheck;
+        private System.Windows.Forms.Button btnGit;
     }
 }
 

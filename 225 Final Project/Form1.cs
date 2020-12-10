@@ -123,7 +123,7 @@ namespace _225_Final_Project
                 listBox1.SelectedIndex = 0;
             string path = ProjectsPath[listBox1.SelectedIndex] + listBox1.SelectedItem;
 
-            RunDir(path);
+            RunFile(path);
         }
 
         private void BtnAddProj_Click(object sender, EventArgs e)
@@ -134,7 +134,6 @@ namespace _225_Final_Project
 
             //Splits path to be sorted
             string[] PathArr = ofd.FileName.Split('\\');
-
 
             //Removes the File Name from the path
             string Path = null;
@@ -148,14 +147,20 @@ namespace _225_Final_Project
             listBox1.Update();
         }
 
-        private void RunDir(string FilePath)
+        /// <summary>
+        /// Runs the Item Selected in the main listbox
+        /// </summary>
+        /// <param name="FilePath"></param>
+        private void RunFile(string FilePath)
         {
             //https://stackoverflow.com/questions/1283584/how-do-i-launch-files-in-c-sharp
             //FULL CREDIT TO THIS PERSON
             try
             {
-            System.Diagnostics.Process proc = new System.Diagnostics.Process();
-            proc.EnableRaisingEvents = false;
+                System.Diagnostics.Process proc = new System.Diagnostics.Process
+                {
+                    EnableRaisingEvents = false
+                };
             proc.StartInfo.FileName = FilePath;
             proc.Start();
             }
@@ -190,9 +195,22 @@ namespace _225_Final_Project
         //}
         #endregion FileManip
 
-        private void btnRecheck_Click(object sender, EventArgs e)
+        private void BtnRecheck_Click(object sender, EventArgs e)
         {
             Startup();
+        }
+
+        private void BtnGit_Click(object sender, EventArgs e)
+        {
+            Resources.GitClone gc = new Resources.GitClone();
+            gc.ShowDialog();
+            MessageBox.Show("Please add Main object to the list before continuing!");
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.InitialDirectory = Directory.GetCurrentDirectory();
+            ofd.ShowDialog();
+
+
         }
     }
 }

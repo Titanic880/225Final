@@ -15,3 +15,4 @@ C:\Users\Mitch\Desktop\Final Projects\225 Final Project\obj\Debug\Interop.IWshRu
 C:\Users\Mitch\Desktop\Final Projects\225 Final Project\obj\Debug\225 Final Project.csproj.ResolveComReference.cache
 C:\Users\Mitch\Desktop\Final Projects\225 Final Project\bin\Debug\ErrorLogging.dll
 C:\Users\Mitch\Desktop\Final Projects\225 Final Project\bin\Debug\ErrorLogging.pdb
+C:\Users\Mitch\Desktop\Final Projects\225 Final Project\obj\Debug\_225_Final_Project.Resources.GitClone.resources

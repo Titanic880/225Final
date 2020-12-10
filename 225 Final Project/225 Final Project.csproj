@@ -55,6 +55,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\GitClone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\GitClone.Designer.cs">
+      <DependentUpon>GitClone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\PowerShell.cs" />
     <Compile Include="Resources\SerializedObject.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -68,6 +75,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resources\GitClone.resx">
+      <DependentUpon>GitClone.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
