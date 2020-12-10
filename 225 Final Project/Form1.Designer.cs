@@ -31,9 +31,10 @@
             this.btnRunProject = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnAddProj = new System.Windows.Forms.Button();
-            this.btnErrorChage = new System.Windows.Forms.Button();
+            this.btnErrorChange = new System.Windows.Forms.Button();
             this.btnRecheck = new System.Windows.Forms.Button();
             this.btnGit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRunProject
@@ -64,21 +65,21 @@
             this.btnAddProj.UseVisualStyleBackColor = true;
             this.btnAddProj.Click += new System.EventHandler(this.BtnAddProj_Click);
             // 
-            // btnErrorChage
+            // btnErrorChange
             // 
-            this.btnErrorChage.Location = new System.Drawing.Point(138, 409);
-            this.btnErrorChage.Name = "btnErrorChage";
-            this.btnErrorChage.Size = new System.Drawing.Size(115, 39);
-            this.btnErrorChage.TabIndex = 4;
-            this.btnErrorChage.Text = "Change Error Output";
-            this.btnErrorChage.UseVisualStyleBackColor = true;
-            this.btnErrorChage.Click += new System.EventHandler(this.BtnErrorChage_Click);
+            this.btnErrorChange.Location = new System.Drawing.Point(138, 409);
+            this.btnErrorChange.Name = "btnErrorChange";
+            this.btnErrorChange.Size = new System.Drawing.Size(115, 39);
+            this.btnErrorChange.TabIndex = 4;
+            this.btnErrorChange.Text = "Change Error Output";
+            this.btnErrorChange.UseVisualStyleBackColor = true;
+            this.btnErrorChange.Click += new System.EventHandler(this.BtnErrorChange_Click);
             // 
             // btnRecheck
             // 
-            this.btnRecheck.Location = new System.Drawing.Point(17, 409);
+            this.btnRecheck.Location = new System.Drawing.Point(12, 409);
             this.btnRecheck.Name = "btnRecheck";
-            this.btnRecheck.Size = new System.Drawing.Size(115, 39);
+            this.btnRecheck.Size = new System.Drawing.Size(120, 39);
             this.btnRecheck.TabIndex = 5;
             this.btnRecheck.Text = "Rerun Startup Checks";
             this.btnRecheck.UseVisualStyleBackColor = true;
@@ -86,21 +87,32 @@
             // 
             // btnGit
             // 
-            this.btnGit.Location = new System.Drawing.Point(17, 454);
+            this.btnGit.Location = new System.Drawing.Point(12, 454);
             this.btnGit.Name = "btnGit";
-            this.btnGit.Size = new System.Drawing.Size(115, 30);
+            this.btnGit.Size = new System.Drawing.Size(120, 30);
             this.btnGit.TabIndex = 6;
             this.btnGit.Text = "Clone From Github";
             this.btnGit.UseVisualStyleBackColor = true;
             this.btnGit.Click += new System.EventHandler(this.BtnGit_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(138, 454);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(115, 30);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save List of Files";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(267, 508);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnGit);
-            this.Controls.Add(this.btnErrorChage);
+            this.Controls.Add(this.btnErrorChange);
             this.Controls.Add(this.btnAddProj);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnRunProject);
@@ -115,9 +127,10 @@
         private System.Windows.Forms.Button btnRunProject;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnAddProj;
-        private System.Windows.Forms.Button btnErrorChage;
+        private System.Windows.Forms.Button btnErrorChange;
         private System.Windows.Forms.Button btnRecheck;
         private System.Windows.Forms.Button btnGit;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 

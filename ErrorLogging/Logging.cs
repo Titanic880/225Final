@@ -17,6 +17,7 @@ namespace ErrorLogging
         public enum ErrorLevel
         {
             Startup = 69,
+            Debug,
             None = 0,
             Minor,
             Intermediate,
@@ -82,7 +83,6 @@ namespace ErrorLogging
                 ToFile(level, input);
             }
         }
-
         /// <summary>
         /// Outputs error to a File
         /// </summary>
@@ -106,7 +106,6 @@ namespace ErrorLogging
             }
             return true;
         }
-
         /// <summary>
         /// Outputs error to a Database table
         /// </summary>

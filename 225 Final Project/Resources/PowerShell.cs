@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-//Required for this to work
-//using System.Collections.ObjectModel;
-//using System.Management.Automation;
-//using System.Management.Automation.Runspaces;
 
 //Ambitious is never a question of whether I should, it is a question of can I?
 //https://www.codeproject.com/Articles/18229/How-to-run-PowerShell-scripts-from-C
@@ -18,6 +14,7 @@ namespace _225_Final_Project.Resources
     /// </summary>
     public class PowerShell
     {
+        #region Github
         /// <summary>
         /// Clones a Repo from github and puts it in a folder with the repo name
         /// </summary>
@@ -52,5 +49,7 @@ namespace _225_Final_Project.Resources
             ErrorLogging.Logging.Output("Cloned Repository Successfully!");
             return true;
         }
+        #endregion Github
+
     }
 }

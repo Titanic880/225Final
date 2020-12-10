@@ -11,9 +11,10 @@ namespace _225_Final_Project
     {
         public List<string> ProjectsPath { get; private set; } = new List<string>();
         public List<string> ProjectsName { get; private set; } = new List<string>();
+        
         private const string SerializedLoc = "Save_File";
+        
         Resources.SerializedObject savefile;
-        //Outside Solution 
         Sql_Interface.Interface sql = null;
 
         /// <summary>
@@ -24,7 +25,67 @@ namespace _225_Final_Project
             InitializeComponent();
             Startup();
         }
+        #region Buttons
+        private void BtnRecheck_Click(object sender, EventArgs e)
+        {
+            Startup();
+        }
 
+        private void BtnAddProj_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            //ofd.FileName = "Solution Files (*sln)";
+            ofd.ShowDialog();
+            AddProject(ofd);
+        }
+        private void BtnRunProject_Click(object sender, EventArgs e)
+        {
+            //Must be at the top, checks index of listbox
+            if (listBox1.SelectedIndex >= ProjectsPath.Count || listBox1.SelectedIndex < 0)
+                listBox1.SelectedIndex = 0;
+            string path = ProjectsPath[listBox1.SelectedIndex] + listBox1.SelectedItem;
+
+            RunFile(path);
+        }
+        
+        private void BtnGit_Click(object sender, EventArgs e)
+        {
+            Resources.GitClone gc = new Resources.GitClone();
+            gc.ShowDialog();
+            MessageBox.Show("Please add Main object to the list before continuing!");
+
+            //Lets the user add a file without needing to click the Add button
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                InitialDirectory = Directory.GetCurrentDirectory()
+            };
+            ofd.ShowDialog();
+
+            AddProject(ofd);
+        }
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            //Saves to the savefile
+            savefile.Save(ProjectsPath, ProjectsName);
+            savefile.SerializeClass(SerializedLoc);
+        }
+        private void BtnErrorChange_Click(object sender, EventArgs e)
+        {
+            if (Logging.sql == null)
+                Logging.sql = sql;
+
+            //Flips the output type
+            Logging.OutputType = !Logging.OutputType;
+
+            //Checks the output type, and flips it
+            if (Logging.OutputType)
+                MessageBox.Show("Now outputting to Database!");
+            else
+                MessageBox.Show("Now outputting to File!");
+        }
+        #endregion Buttons
+
+        #region Methods
         /// <summary>
         /// What is run on start up
         /// </summary>
@@ -69,29 +130,6 @@ namespace _225_Final_Project
                 Logging.Output("Connected!", Logging.ErrorLevel.Startup);
             }
         }
-
-        ~Form1()
-        {
-            //Saves to the savefile
-            savefile.Save(ProjectsPath, ProjectsName);
-            savefile.SerializeClass(SerializedLoc);
-        }
-
-        private void BtnErrorChage_Click(object sender, EventArgs e)
-        {
-            if (Logging.sql == null)
-                Logging.sql = sql;
-
-            //Flips the output type
-            Logging.OutputType = !Logging.OutputType;
-
-            //Checks the output type, and flips it
-            if (Logging.OutputType)
-                MessageBox.Show("Now outputting to Database!");
-            else
-                MessageBox.Show("Now outputting to File!");
-        }
-
         /// <summary>
         /// uses a bool to check if its the startup process, leave blank otherwise
         /// </summary>
@@ -102,51 +140,38 @@ namespace _225_Final_Project
                 Logging.sql = sql;
 
             //Checks for startup
-            if (!startup) 
-            { 
-            //Flips the output type
-            Logging.OutputType = !Logging.OutputType;
+            if (!startup)
+            {
+                //Flips the output type
+                Logging.OutputType = !Logging.OutputType;
 
-            //Checks the output type, and flips it
-            if (Logging.OutputType)
-                MessageBox.Show("Now outputting to Database!");
-            else
-                MessageBox.Show("Now outputting to File!");
+                //Checks the output type, and flips it
+                if (Logging.OutputType)
+                    MessageBox.Show("Now outputting to Database!");
+                else
+                    MessageBox.Show("Now outputting to File!");
             }
         }
-
-        #region FileManip
-        private void BtnRunProject_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Adds a given file to the listbox and subsequent lists
+        /// </summary>
+        /// <param name="ofd"></param>
+        private void AddProject(OpenFileDialog ofd)
         {
-            //Must be at the top, checks index of listbox
-            if (listBox1.SelectedIndex >= ProjectsPath.Count || listBox1.SelectedIndex < 0)
-                listBox1.SelectedIndex = 0;
-            string path = ProjectsPath[listBox1.SelectedIndex] + listBox1.SelectedItem;
-
-            RunFile(path);
-        }
-
-        private void BtnAddProj_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            //ofd.FileName = "Solution Files (*sln)";
-            ofd.ShowDialog();
-
             //Splits path to be sorted
             string[] PathArr = ofd.FileName.Split('\\');
 
             //Removes the File Name from the path
             string Path = null;
-            for(int i = 0; i < PathArr.Length-1 ;i++)
-                Path += PathArr[i]+"\\";
+            for (int i = 0; i < PathArr.Length - 1; i++)
+                Path += PathArr[i] + "\\";
 
             //Adds the path and project to different lists
             ProjectsPath.Add(Path);
-            ProjectsName.Add(PathArr[PathArr.Length-1]);
-            listBox1.Items.Add(ProjectsName[ProjectsName.Count-1]);
+            ProjectsName.Add(PathArr[PathArr.Length - 1]);
+            listBox1.Items.Add(ProjectsName[ProjectsName.Count - 1]);
             listBox1.Update();
         }
-
         /// <summary>
         /// Runs the Item Selected in the main listbox
         /// </summary>
@@ -161,16 +186,18 @@ namespace _225_Final_Project
                 {
                     EnableRaisingEvents = false
                 };
-            proc.StartInfo.FileName = FilePath;
-            proc.Start();
+                proc.StartInfo.FileName = FilePath;
+                proc.Start();
             }
             catch (Exception ex)
             {
-                Logging.Output(ex.Message,Logging.ErrorLevel.Intermediate);
-                MessageBox.Show("Failed to Launch "+Environment.NewLine+" Check Error log for details");
+                Logging.Output(ex.Message, Logging.ErrorLevel.Intermediate);
+                MessageBox.Show("Failed to Launch " + Environment.NewLine + " Check Error log for details");
             }
         }
+        #endregion Methods
 
+        #region Historical
         /// <summary>
         /// https://stackoverflow.com/questions/40557717/c-sharp-the-system-cannot-find-the-path-specified
         /// Didn't work the way i wanted it to; left for historic purposes
@@ -193,24 +220,6 @@ namespace _225_Final_Project
         //    shortcut.TargetPath = targetFileLocation;                 // The path of the file that will launch when the shortcut is run
         //    shortcut.Save();                                    // Save the shortcut
         //}
-        #endregion FileManip
-
-        private void BtnRecheck_Click(object sender, EventArgs e)
-        {
-            Startup();
-        }
-
-        private void BtnGit_Click(object sender, EventArgs e)
-        {
-            Resources.GitClone gc = new Resources.GitClone();
-            gc.ShowDialog();
-            MessageBox.Show("Please add Main object to the list before continuing!");
-
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = Directory.GetCurrentDirectory();
-            ofd.ShowDialog();
-
-
-        }
+        #endregion Historical
     }
 }

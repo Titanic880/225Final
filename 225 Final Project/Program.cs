@@ -1,7 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
-
 
 namespace _225_Final_Project
 {
@@ -16,8 +14,6 @@ namespace _225_Final_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-                
-
             ErrorLogging.Logging.Output("End of Program!", ErrorLogging.Logging.ErrorLevel.None);
         }
     }
