@@ -62,10 +62,8 @@ namespace _225_Final_Project.Resources
                     BinaryFormatter binFormat = new BinaryFormatter();
                     obj = (SerializedObject)binFormat.Deserialize(stream);
                 }
-                catch
-                {
-                    
-                }
+                catch 
+                {}
             }
             return obj;
         }

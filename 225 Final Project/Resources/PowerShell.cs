@@ -37,7 +37,6 @@ namespace _225_Final_Project.Resources
                     Arguments = $"-NoProfile -ExecutionPolicy unrestricted -EncodedCommand \"{Scripts}\"",
                     UseShellExecute = false
                 };
-
                 Process.Start(start);
             }
             catch (Exception Ex)
@@ -50,6 +49,5 @@ namespace _225_Final_Project.Resources
             return true;
         }
         #endregion Github
-
     }
 }

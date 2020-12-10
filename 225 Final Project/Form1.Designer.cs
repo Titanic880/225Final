@@ -45,8 +45,8 @@
             // 
             this.btnRunProject.Location = new System.Drawing.Point(9, 422);
             this.btnRunProject.Name = "btnRunProject";
-            this.btnRunProject.Size = new System.Drawing.Size(246, 30);
-            this.btnRunProject.TabIndex = 1;
+            this.btnRunProject.Size = new System.Drawing.Size(249, 30);
+            this.btnRunProject.TabIndex = 3;
             this.btnRunProject.Text = "Open File";
             this.btnRunProject.UseVisualStyleBackColor = true;
             this.btnRunProject.Click += new System.EventHandler(this.BtnRunProject_Click);
@@ -54,27 +54,27 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 25);
+            this.listBox1.Location = new System.Drawing.Point(9, 25);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(246, 355);
-            this.listBox1.TabIndex = 2;
+            this.listBox1.Size = new System.Drawing.Size(249, 355);
+            this.listBox1.TabIndex = 0;
             // 
             // btnAddProj
             // 
-            this.btnAddProj.Location = new System.Drawing.Point(12, 386);
+            this.btnAddProj.Location = new System.Drawing.Point(9, 386);
             this.btnAddProj.Name = "btnAddProj";
             this.btnAddProj.Size = new System.Drawing.Size(120, 30);
-            this.btnAddProj.TabIndex = 3;
+            this.btnAddProj.TabIndex = 1;
             this.btnAddProj.Text = "Add File";
             this.btnAddProj.UseVisualStyleBackColor = true;
             this.btnAddProj.Click += new System.EventHandler(this.BtnAddProj_Click);
             // 
             // btnErrorChange
             // 
-            this.btnErrorChange.Location = new System.Drawing.Point(135, 458);
+            this.btnErrorChange.Location = new System.Drawing.Point(138, 458);
             this.btnErrorChange.Name = "btnErrorChange";
             this.btnErrorChange.Size = new System.Drawing.Size(120, 30);
-            this.btnErrorChange.TabIndex = 4;
+            this.btnErrorChange.TabIndex = 5;
             this.btnErrorChange.Text = "Change Error Output";
             this.btnErrorChange.UseVisualStyleBackColor = true;
             this.btnErrorChange.Click += new System.EventHandler(this.BtnErrorChange_Click);
@@ -84,7 +84,7 @@
             this.btnRecheck.Location = new System.Drawing.Point(9, 458);
             this.btnRecheck.Name = "btnRecheck";
             this.btnRecheck.Size = new System.Drawing.Size(120, 30);
-            this.btnRecheck.TabIndex = 5;
+            this.btnRecheck.TabIndex = 4;
             this.btnRecheck.Text = "Rerun Startup Checks";
             this.btnRecheck.UseVisualStyleBackColor = true;
             this.btnRecheck.Click += new System.EventHandler(this.BtnRecheck_Click);
@@ -101,7 +101,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(135, 494);
+            this.btnSave.Location = new System.Drawing.Point(138, 494);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 30);
             this.btnSave.TabIndex = 7;
@@ -113,7 +113,7 @@
             // 
             this.btnClose.Location = new System.Drawing.Point(9, 530);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(246, 30);
+            this.btnClose.Size = new System.Drawing.Size(249, 30);
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.btnRemove.Location = new System.Drawing.Point(138, 386);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(120, 30);
-            this.btnRemove.TabIndex = 9;
+            this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Remove File";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
