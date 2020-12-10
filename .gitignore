@@ -362,8 +362,8 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # User Added Ignores
-bin
-obj
+bin/
+obj/
 token.json
 token.txt
 auth.json
