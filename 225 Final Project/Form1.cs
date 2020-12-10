@@ -14,7 +14,7 @@ namespace _225_Final_Project
         private const string SerializedLoc = "Save_File";
         Resources.SerializedObject savefile;
         //Outside Solution 
-        readonly Sql_Interface.Interface sql = null;
+        Sql_Interface.Interface sql = null;
 
         /// <summary>
         /// Accepts a bool to declare if the save file is found
@@ -22,6 +22,14 @@ namespace _225_Final_Project
         public Form1()
         {
             InitializeComponent();
+            Startup();
+        }
+
+        /// <summary>
+        /// What is run on start up
+        /// </summary>
+        private void Startup()
+        {
             savefile = new Resources.SerializedObject();
 
             //checks the save file
@@ -36,7 +44,7 @@ namespace _225_Final_Project
                 savefile = Resources.SerializedObject.DeSerializeClass(SerializedLoc);
             }
             //Sets the variables from savefile
-            if(savefile != null)
+            if (savefile != null)
             {
                 ProjectsName = savefile.Names;
                 ProjectsPath = savefile.FilePaths;
@@ -58,7 +66,7 @@ namespace _225_Final_Project
             }
             else
             {
-                Logging.Output("Connected!",Logging.ErrorLevel.Startup);
+                Logging.Output("Connected!", Logging.ErrorLevel.Startup);
             }
         }
 
@@ -144,12 +152,18 @@ namespace _225_Final_Project
         {
             //https://stackoverflow.com/questions/1283584/how-do-i-launch-files-in-c-sharp
             //FULL CREDIT TO THIS PERSON
+            try
+            {
             System.Diagnostics.Process proc = new System.Diagnostics.Process();
             proc.EnableRaisingEvents = false;
             proc.StartInfo.FileName = FilePath;
             proc.Start();
-
-            //System.Diagnostics.Process.Start(FilePath);
+            }
+            catch (Exception ex)
+            {
+                Logging.Output(ex.Message,Logging.ErrorLevel.Intermediate);
+                MessageBox.Show("Failed to Launch "+Environment.NewLine+" Check Error log for details");
+            }
         }
 
         /// <summary>
@@ -176,5 +190,9 @@ namespace _225_Final_Project
         //}
         #endregion FileManip
 
+        private void btnRecheck_Click(object sender, EventArgs e)
+        {
+            Startup();
+        }
     }
 }

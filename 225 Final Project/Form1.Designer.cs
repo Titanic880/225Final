@@ -32,13 +32,14 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnAddProj = new System.Windows.Forms.Button();
             this.btnErrorChage = new System.Windows.Forms.Button();
+            this.btnRecheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRunProject
             // 
-            this.btnRunProject.Location = new System.Drawing.Point(12, 409);
+            this.btnRunProject.Location = new System.Drawing.Point(138, 373);
             this.btnRunProject.Name = "btnRunProject";
-            this.btnRunProject.Size = new System.Drawing.Size(120, 29);
+            this.btnRunProject.Size = new System.Drawing.Size(115, 29);
             this.btnRunProject.TabIndex = 1;
             this.btnRunProject.Text = "Open File";
             this.btnRunProject.UseVisualStyleBackColor = true;
@@ -49,7 +50,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 355);
+            this.listBox1.Size = new System.Drawing.Size(241, 355);
             this.listBox1.TabIndex = 2;
             // 
             // btnAddProj
@@ -66,17 +67,28 @@
             // 
             this.btnErrorChage.Location = new System.Drawing.Point(138, 409);
             this.btnErrorChage.Name = "btnErrorChage";
-            this.btnErrorChage.Size = new System.Drawing.Size(115, 29);
+            this.btnErrorChage.Size = new System.Drawing.Size(115, 39);
             this.btnErrorChage.TabIndex = 4;
             this.btnErrorChage.Text = "Change Error Output";
             this.btnErrorChage.UseVisualStyleBackColor = true;
             this.btnErrorChage.Click += new System.EventHandler(this.BtnErrorChage_Click);
             // 
+            // btnRecheck
+            // 
+            this.btnRecheck.Location = new System.Drawing.Point(17, 409);
+            this.btnRecheck.Name = "btnRecheck";
+            this.btnRecheck.Size = new System.Drawing.Size(115, 39);
+            this.btnRecheck.TabIndex = 5;
+            this.btnRecheck.Text = "Rerun Startup Checks";
+            this.btnRecheck.UseVisualStyleBackColor = true;
+            this.btnRecheck.Click += new System.EventHandler(this.btnRecheck_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(267, 469);
+            this.Controls.Add(this.btnRecheck);
             this.Controls.Add(this.btnErrorChage);
             this.Controls.Add(this.btnAddProj);
             this.Controls.Add(this.listBox1);
@@ -92,6 +104,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnAddProj;
         private System.Windows.Forms.Button btnErrorChage;
+        private System.Windows.Forms.Button btnRecheck;
     }
 }
 
