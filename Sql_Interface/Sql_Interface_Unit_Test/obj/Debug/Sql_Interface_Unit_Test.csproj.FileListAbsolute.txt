@@ -1,0 +1,14 @@
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\bin\Debug\Sql_Interface_Unit_Test.dll
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\bin\Debug\Sql_Interface_Unit_Test.pdb
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\obj\Debug\Sql_Interface_Unit_Test.csprojAssemblyReference.cache
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\obj\Debug\Sql_Interface_Unit_Test.csproj.CoreCompileInputs.cache
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\obj\Debug\Sql_Interface_Unit_Test.csproj.CopyComplete
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\obj\Debug\Sql_Interface_Unit_Test.dll
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\Sql_Interface_Unit_Test\obj\Debug\Sql_Interface_Unit_Test.pdb

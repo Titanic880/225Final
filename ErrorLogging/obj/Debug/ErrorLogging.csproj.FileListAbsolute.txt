@@ -1,0 +1,9 @@
+C:\Users\Mitch\Desktop\Final Projects\ErrorLogging\bin\Debug\ErrorLogging.dll
+C:\Users\Mitch\Desktop\Final Projects\ErrorLogging\bin\Debug\ErrorLogging.pdb
+C:\Users\Mitch\Desktop\Final Projects\ErrorLogging\obj\Debug\ErrorLogging.csproj.CoreCompileInputs.cache
+C:\Users\Mitch\Desktop\Final Projects\ErrorLogging\obj\Debug\ErrorLogging.dll
+C:\Users\Mitch\Desktop\Final Projects\ErrorLogging\obj\Debug\ErrorLogging.pdb
+C:\Users\Mitch\Desktop\Final Projects\ErrorLogging\bin\Debug\Sql_Interface.dll
+C:\Users\Mitch\Desktop\Final Projects\ErrorLogging\bin\Debug\Sql_Interface.pdb
+C:\Users\Mitch\Desktop\Final Projects\ErrorLogging\obj\Debug\ErrorLogging.csprojAssemblyReference.cache
+C:\Users\Mitch\Desktop\Final Projects\ErrorLogging\obj\Debug\ErrorLogging.csproj.CopyComplete

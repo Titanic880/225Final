@@ -1,0 +1,6 @@
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\bin\Debug\Sql_Interface.dll
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\bin\Debug\Sql_Interface.pdb
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\obj\Debug\Sql_Interface.csproj.CoreCompileInputs.cache
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\obj\Debug\Sql_Interface.dll
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\obj\Debug\Sql_Interface.pdb
+C:\Users\Mitch\Desktop\Final Projects\Sql_Interface\obj\Debug\Sql_Interface.csprojAssemblyReference.cache
