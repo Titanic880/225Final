@@ -12,9 +12,25 @@ GO
 The User that is Built into the App.Config File
 
 */
+
+
 Create Database [225Final];
 go
 use [225Final];
 go
---Tables are generated from within the Solution!
+--Primary Tables are generated from within the Solution!
 
+Create Table LogLevel (
+[ID] int NOT NULL IDENTITY (0,1),
+[ErrorLevel] varchar(12) NOT NULL,
+[ErrorName] varchar(14) NOT NULL
+);
+INSERT INTO LogLevel 
+Values 
+(69,'StartUp'),
+(70,'Debug'),
+(0,'None'),
+(1,'Minor'),
+(2,'Intermediate'),
+(3,'Major'),
+(4,'Extreme')

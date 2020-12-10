@@ -226,7 +226,7 @@ namespace Sql_Interface
                 SqlCommand cmd = new SqlCommand(Query, sql);
                 cmd.ExecuteNonQuery().ToString();
             }
-            catch
+            catch(Exception ex)
             {
                 
             }
@@ -249,7 +249,7 @@ namespace Sql_Interface
                 Query.Connection = sql;
                 Query.ExecuteNonQuery().ToString();
             }
-            catch
+            catch(Exception ex)
             {
 
             }

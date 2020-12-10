@@ -75,7 +75,7 @@ namespace _225_Final_Project
         private void BtnSave_Click(object sender, EventArgs e)
         {
             SaveFile();
-            MessageBox.Show("Saved to File!");
+            MessageBox.Show("Saved to "+lblSave.Text+"!");
         }
         private void BtnErrorChange_Click(object sender, EventArgs e)
         {

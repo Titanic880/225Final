@@ -55,7 +55,7 @@ namespace ErrorLogging
             string[] Tables = {
                 "Create Table "+TableName+" (" 
                 +"ID int not null Primary key Identity(0,1)," 
-                +"LogLevel int not null," 
+                +"LogLevel varchar(12) not null," 
                 +"Error_Desc varchar(50)," 
                 +"Time_Of_Error DateTime not null" 
                 +");",
@@ -68,6 +68,7 @@ namespace ErrorLogging
             }; 
             foreach(string tbl in Tables)
                 sql.NonExecute(tbl);
+
             TableBuilt = true;
         }
 
@@ -123,7 +124,7 @@ namespace ErrorLogging
         {
             //Inserts Data to the table 
             SqlCommand cmd = new SqlCommand($"Insert into {TableName} Values " +
-                $"('@level','@input','{DateTime.Now}')");
+                $"(@level,@input,'{DateTime.Now}')");
 
             cmd.Parameters.AddWithValue("@level", level);
             cmd.Parameters.AddWithValue("@input", input);
