@@ -24,21 +24,16 @@ namespace _225_Final_Project.Resources
         /// Says if the Table has been made
         /// </summary>
         public bool ErrorTable = false;
+        public bool Initilized { get; private set; }
 
-        /// <summary>
-        /// Saves the Objects to this file for serialization
-        /// </summary>
-        /// <param name="FilePaths"></param>
-        /// <param name="ObjectNames"></param>
-        /// <param name="SaveType"></param>
-        /// <param name="ErrorTable"></param>
-        public void Save(List<string> FilePaths, List<string> ObjectNames)
+        public SerializedObject(List<string> FilePaths, List<string> ObjectNames)
         {
             this.FilePaths = FilePaths;
             this.Names = ObjectNames;
             this.SaveType = ErrorLogging.Logging.OutputType;
             this.ErrorTable = ErrorLogging.Logging.TableBuilt;
         }
+
         /// <summary>
         /// Serializes the class to a specified File
         /// </summary>

@@ -66,8 +66,10 @@ namespace _225_Final_Project
         private void BtnSave_Click(object sender, EventArgs e)
         {
             //Saves to the savefile
-            savefile.Save(ProjectsPath, ProjectsName);
+            savefile = new Resources.SerializedObject(ProjectsPath, ProjectsName);
             savefile.SerializeClass(SerializedLoc);
+
+            MessageBox.Show("Saved to File!");
         }
         private void BtnErrorChange_Click(object sender, EventArgs e)
         {
@@ -91,8 +93,6 @@ namespace _225_Final_Project
         /// </summary>
         private void Startup()
         {
-            savefile = new Resources.SerializedObject();
-
             //checks the save file
             if (!File.Exists(SerializedLoc))
             {
@@ -103,14 +103,17 @@ namespace _225_Final_Project
             else
             {
                 savefile = Resources.SerializedObject.DeSerializeClass(SerializedLoc);
-            }
-            //Sets the variables from savefile
-            if (savefile != null)
-            {
-                ProjectsName = savefile.Names;
-                ProjectsPath = savefile.FilePaths;
-                Logging.OutputType = savefile.SaveType;
-                Logging.TableBuilt = savefile.ErrorTable;
+                //Sets the variables from savefile
+                if (savefile != null)
+                {
+                    ProjectsName = savefile.Names;
+                    ProjectsPath = savefile.FilePaths;
+                    Logging.OutputType = savefile.SaveType;
+                    Logging.TableBuilt = savefile.ErrorTable;
+                    //Adds Names to the list
+                    foreach(string obj in ProjectsName)
+                        listBox1.Items.Add(obj);
+                }
             }
 
             sql = new Sql_Interface.Interface(ConfigurationManager.AppSettings.Get("Connection"));
