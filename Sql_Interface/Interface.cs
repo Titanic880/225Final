@@ -226,9 +226,9 @@ namespace Sql_Interface
                 SqlCommand cmd = new SqlCommand(Query, sql);
                 cmd.ExecuteNonQuery().ToString();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                
             }
             finally
             {
@@ -241,17 +241,17 @@ namespace Sql_Interface
         /// Executes a Query without a return
         /// </summary>
         /// <param name="Query"></param>s
-        internal static string RunNonQuery(SqlCommand Query)
+        internal static void RunNonQuery(SqlCommand Query)
         {
             try
             {
                 sql.Open();
                 Query.Connection = sql;
-                return Query.ExecuteScalar().ToString();
+                Query.ExecuteNonQuery().ToString();
             }
-            catch (Exception ex)
+            catch
             {
-                return "--" + ex.Message;
+
             }
             finally
             {

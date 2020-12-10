@@ -35,13 +35,17 @@
             this.btnRecheck = new System.Windows.Forms.Button();
             this.btnGit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.lblSaveTo = new System.Windows.Forms.Label();
+            this.lblSave = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnRunProject
             // 
-            this.btnRunProject.Location = new System.Drawing.Point(138, 373);
+            this.btnRunProject.Location = new System.Drawing.Point(9, 422);
             this.btnRunProject.Name = "btnRunProject";
-            this.btnRunProject.Size = new System.Drawing.Size(115, 29);
+            this.btnRunProject.Size = new System.Drawing.Size(246, 30);
             this.btnRunProject.TabIndex = 1;
             this.btnRunProject.Text = "Open File";
             this.btnRunProject.UseVisualStyleBackColor = true;
@@ -50,14 +54,14 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
+            this.listBox1.Location = new System.Drawing.Point(12, 25);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(241, 355);
+            this.listBox1.Size = new System.Drawing.Size(246, 355);
             this.listBox1.TabIndex = 2;
             // 
             // btnAddProj
             // 
-            this.btnAddProj.Location = new System.Drawing.Point(12, 373);
+            this.btnAddProj.Location = new System.Drawing.Point(12, 386);
             this.btnAddProj.Name = "btnAddProj";
             this.btnAddProj.Size = new System.Drawing.Size(120, 30);
             this.btnAddProj.TabIndex = 3;
@@ -67,9 +71,9 @@
             // 
             // btnErrorChange
             // 
-            this.btnErrorChange.Location = new System.Drawing.Point(138, 409);
+            this.btnErrorChange.Location = new System.Drawing.Point(135, 458);
             this.btnErrorChange.Name = "btnErrorChange";
-            this.btnErrorChange.Size = new System.Drawing.Size(115, 39);
+            this.btnErrorChange.Size = new System.Drawing.Size(120, 30);
             this.btnErrorChange.TabIndex = 4;
             this.btnErrorChange.Text = "Change Error Output";
             this.btnErrorChange.UseVisualStyleBackColor = true;
@@ -77,9 +81,9 @@
             // 
             // btnRecheck
             // 
-            this.btnRecheck.Location = new System.Drawing.Point(12, 409);
+            this.btnRecheck.Location = new System.Drawing.Point(9, 458);
             this.btnRecheck.Name = "btnRecheck";
-            this.btnRecheck.Size = new System.Drawing.Size(120, 39);
+            this.btnRecheck.Size = new System.Drawing.Size(120, 30);
             this.btnRecheck.TabIndex = 5;
             this.btnRecheck.Text = "Rerun Startup Checks";
             this.btnRecheck.UseVisualStyleBackColor = true;
@@ -87,7 +91,7 @@
             // 
             // btnGit
             // 
-            this.btnGit.Location = new System.Drawing.Point(12, 454);
+            this.btnGit.Location = new System.Drawing.Point(9, 494);
             this.btnGit.Name = "btnGit";
             this.btnGit.Size = new System.Drawing.Size(120, 30);
             this.btnGit.TabIndex = 6;
@@ -97,19 +101,61 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(138, 454);
+            this.btnSave.Location = new System.Drawing.Point(135, 494);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(115, 30);
+            this.btnSave.Size = new System.Drawing.Size(120, 30);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save List of Files";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(9, 530);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(246, 30);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(138, 386);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(120, 30);
+            this.btnRemove.TabIndex = 9;
+            this.btnRemove.Text = "Remove File";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
+            // 
+            // lblSaveTo
+            // 
+            this.lblSaveTo.AutoSize = true;
+            this.lblSaveTo.Location = new System.Drawing.Point(79, 9);
+            this.lblSaveTo.Name = "lblSaveTo";
+            this.lblSaveTo.Size = new System.Drawing.Size(62, 13);
+            this.lblSaveTo.TabIndex = 11;
+            this.lblSaveTo.Text = "Saving To: ";
+            // 
+            // lblSave
+            // 
+            this.lblSave.AutoSize = true;
+            this.lblSave.Location = new System.Drawing.Point(138, 9);
+            this.lblSave.Name = "lblSave";
+            this.lblSave.Size = new System.Drawing.Size(23, 13);
+            this.lblSave.TabIndex = 10;
+            this.lblSave.Text = "File";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 508);
+            this.ClientSize = new System.Drawing.Size(267, 572);
+            this.Controls.Add(this.lblSave);
+            this.Controls.Add(this.lblSaveTo);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnGit);
             this.Controls.Add(this.btnErrorChange);
@@ -120,6 +166,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,6 +178,10 @@
         private System.Windows.Forms.Button btnRecheck;
         private System.Windows.Forms.Button btnGit;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Label lblSaveTo;
+        private System.Windows.Forms.Label lblSave;
     }
 }
 

@@ -4,6 +4,7 @@ using ErrorLogging;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Collections.Generic;
+using System.Data;
 
 namespace _225_Final_Project
 {
@@ -38,6 +39,14 @@ namespace _225_Final_Project
             ofd.ShowDialog();
             AddProject(ofd);
         }
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            int index = listBox1.SelectedIndex;
+            listBox1.Items.RemoveAt(index);
+            ProjectsName.RemoveAt(index);
+            ProjectsPath.RemoveAt(index);
+            MessageBox.Show("Removed Entry!");
+        }
         private void BtnRunProject_Click(object sender, EventArgs e)
         {
             //Must be at the top, checks index of listbox
@@ -65,25 +74,17 @@ namespace _225_Final_Project
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            //Saves to the savefile
-            savefile = new Resources.SerializedObject(ProjectsPath, ProjectsName);
-            savefile.SerializeClass(SerializedLoc);
-
+            SaveFile();
             MessageBox.Show("Saved to File!");
         }
         private void BtnErrorChange_Click(object sender, EventArgs e)
         {
-            if (Logging.sql == null)
-                Logging.sql = sql;
-
-            //Flips the output type
-            Logging.OutputType = !Logging.OutputType;
-
-            //Checks the output type, and flips it
-            if (Logging.OutputType)
-                MessageBox.Show("Now outputting to Database!");
-            else
-                MessageBox.Show("Now outputting to File!");
+            SetError();
+        }
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            SaveFile();
+            this.Close();
         }
         #endregion Buttons
 
@@ -93,34 +94,14 @@ namespace _225_Final_Project
         /// </summary>
         private void Startup()
         {
-            //checks the save file
-            if (!File.Exists(SerializedLoc))
-            {
-                File.Create(SerializedLoc).Close();
-                MessageBox.Show("Save file not found, New one has been made");
-                Logging.Output("Save File not found, new one has been made", Logging.ErrorLevel.Startup);
-            }
-            else
-            {
-                savefile = Resources.SerializedObject.DeSerializeClass(SerializedLoc);
-                //Sets the variables from savefile
-                if (savefile != null)
-                {
-                    ProjectsName = savefile.Names;
-                    ProjectsPath = savefile.FilePaths;
-                    Logging.OutputType = savefile.SaveType;
-                    Logging.TableBuilt = savefile.ErrorTable;
-                    //Adds Names to the list
-                    foreach(string obj in ProjectsName)
-                        listBox1.Items.Add(obj);
-                }
-            }
-
             sql = new Sql_Interface.Interface(ConfigurationManager.AppSettings.Get("Connection"));
+
+            LoadFile();
 
             //Add an errorlog message for Connected status
             SetError(true);
 
+            //Checks to see if the Interface has connected
             if (!sql.Connected)
             {
                 MessageBox.Show($"Sql Connection could not be made" +
@@ -129,9 +110,7 @@ namespace _225_Final_Project
                 Logging.Output("Connection Failed", Logging.ErrorLevel.Startup);
             }
             else
-            {
                 Logging.Output("Connected!", Logging.ErrorLevel.Startup);
-            }
         }
         /// <summary>
         /// uses a bool to check if its the startup process, leave blank otherwise
@@ -150,9 +129,15 @@ namespace _225_Final_Project
 
                 //Checks the output type, and flips it
                 if (Logging.OutputType)
+                {
+                    lblSave.Text = "Database";
                     MessageBox.Show("Now outputting to Database!");
+                }
                 else
+                {
+                    lblSave.Text = "File";
                     MessageBox.Show("Now outputting to File!");
+                }
             }
         }
         /// <summary>
@@ -196,6 +181,79 @@ namespace _225_Final_Project
             {
                 Logging.Output(ex.Message, Logging.ErrorLevel.Intermediate);
                 MessageBox.Show("Failed to Launch " + Environment.NewLine + " Check Error log for details");
+            }
+        }
+        /// <summary>
+        /// Saves the contents of the listbox to the serialized file
+        /// </summary>
+        private void SaveFile()
+        {
+            //Checks if its to database or file
+            if (Logging.OutputType)
+            {
+                //Checks for the tables, if they arent built then builds them
+                if (!Logging.TableBuilt)
+                    Logging.Output("Tables not built yet before needed!", Logging.ErrorLevel.Intermediate);
+
+
+                //Sends the Lists to the database
+                //Deletes entire Table -- The contents should be within the list regardless
+                sql.NonExecute("DELETE FROM [DataSave]");
+                //Executes a query for each entry -- There should be a faster method, but time restraint
+                for (int i = 0; i < ProjectsName.Count; i++)
+                {
+                    string Query = "Insert into [DataSave] "
+                          + $"Values('{ProjectsName[i]}', '{ProjectsPath[i]}')";
+                    sql.NonExecute(Query);
+                }
+            }
+            else
+            {
+                //Saves to the savefile
+                savefile = new Resources.SerializedObject(ProjectsPath, ProjectsName);
+                savefile.SerializeClass(SerializedLoc);
+            }
+        }
+        /// <summary>
+        /// Loads from both the Database and the File
+        /// </summary>
+        private void LoadFile()
+        {
+            //checks the save file
+            if (!File.Exists(SerializedLoc))
+            {
+                File.Create(SerializedLoc).Close();
+                MessageBox.Show("Save file not found, New one has been made");
+                Logging.Output("Save File not found, new one has been made", Logging.ErrorLevel.Startup);
+            }
+            else
+            {
+                savefile = Resources.SerializedObject.DeSerializeClass(SerializedLoc);
+                //Sets the variables from savefile
+                if (savefile != null)
+                {
+                    ProjectsName = savefile.Names;
+                    ProjectsPath = savefile.FilePaths;
+                    Logging.OutputType = savefile.SaveType;
+                    Logging.TableBuilt = savefile.ErrorTable;
+                    //Adds Names to the list
+                    foreach (string obj in ProjectsName)
+                        listBox1.Items.Add(obj);
+                }
+            }
+
+            //Blank scope for organization
+            {
+                //Run this to know that the databases exist
+                Logging.Output("Loading from Database", Logging.ErrorLevel.Startup);
+                string Query = "Select DISTINCT FName, FDirectory from [DataSave]";
+                DataTable dt = sql.Execute(Query);
+                foreach (DataRow a in dt.Rows)
+                {
+                    ProjectsName.Add(a.ItemArray[0].ToString());
+                    listBox1.Items.Add(a.ItemArray[0].ToString());
+                    ProjectsPath.Add(a.ItemArray[1].ToString());
+                }
             }
         }
         #endregion Methods

@@ -47,19 +47,27 @@ namespace ErrorLogging
         #endregion Variables
 
         /// <summary>
-        /// Builds the Data base table that is used
+        /// Builds the Database tables that are used
         /// </summary>
         /// <returns></returns>
         private static void Build_Table()
         {
-            string Table_Loggging = "Create Table "+TableName+" (" +
-                "ID int not null Primary key Identity(0,1)," +
-                "LogLevel int not null," +
-                "Error_Desc varchar(50)," +
-                "Time_Of_Error DateTime not null" +
-                ");";
-
-            sql.NonExecute(Table_Loggging);
+            string[] Tables = {
+                "Create Table "+TableName+" (" 
+                +"ID int not null Primary key Identity(0,1)," 
+                +"LogLevel int not null," 
+                +"Error_Desc varchar(50)," 
+                +"Time_Of_Error DateTime not null" 
+                +");",
+                
+                "Create Table [DataSave] ("
+               +"ID INT NOT NULL PRIMARY KEY IDENTITY(0, 1),"
+               +"FName varchar(40) NOT NULL,"
+               +"FDirectory varchar(80) NOT NULL,"
+               +");"
+            }; 
+            foreach(string tbl in Tables)
+                sql.NonExecute(tbl);
             TableBuilt = true;
         }
 
@@ -75,7 +83,6 @@ namespace ErrorLogging
             {
                 if (!TableBuilt)
                     Build_Table();
-
                 ToDB(level, input);
             }
             else
