@@ -28,30 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnTestDB = new System.Windows.Forms.Button();
             this.btnRunProject = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnAddProj = new System.Windows.Forms.Button();
             this.btnErrorChage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnTestDB
-            // 
-            this.btnTestDB.Location = new System.Drawing.Point(205, 320);
-            this.btnTestDB.Name = "btnTestDB";
-            this.btnTestDB.Size = new System.Drawing.Size(75, 47);
-            this.btnTestDB.TabIndex = 0;
-            this.btnTestDB.Text = "Test Database";
-            this.btnTestDB.UseVisualStyleBackColor = true;
-            this.btnTestDB.Click += new System.EventHandler(this.BtnTestDB_Click);
-            // 
             // btnRunProject
             // 
-            this.btnRunProject.Location = new System.Drawing.Point(193, 373);
+            this.btnRunProject.Location = new System.Drawing.Point(12, 409);
             this.btnRunProject.Name = "btnRunProject";
-            this.btnRunProject.Size = new System.Drawing.Size(75, 47);
+            this.btnRunProject.Size = new System.Drawing.Size(120, 29);
             this.btnRunProject.TabIndex = 1;
-            this.btnRunProject.Text = "Open Project";
+            this.btnRunProject.Text = "Open File";
             this.btnRunProject.UseVisualStyleBackColor = true;
             this.btnRunProject.Click += new System.EventHandler(this.BtnRunProject_Click);
             // 
@@ -69,15 +58,15 @@
             this.btnAddProj.Name = "btnAddProj";
             this.btnAddProj.Size = new System.Drawing.Size(120, 30);
             this.btnAddProj.TabIndex = 3;
-            this.btnAddProj.Text = "Add Project";
+            this.btnAddProj.Text = "Add File";
             this.btnAddProj.UseVisualStyleBackColor = true;
             this.btnAddProj.Click += new System.EventHandler(this.BtnAddProj_Click);
             // 
             // btnErrorChage
             // 
-            this.btnErrorChage.Location = new System.Drawing.Point(713, 394);
+            this.btnErrorChage.Location = new System.Drawing.Point(138, 409);
             this.btnErrorChage.Name = "btnErrorChage";
-            this.btnErrorChage.Size = new System.Drawing.Size(75, 44);
+            this.btnErrorChage.Size = new System.Drawing.Size(115, 29);
             this.btnErrorChage.TabIndex = 4;
             this.btnErrorChage.Text = "Change Error Output";
             this.btnErrorChage.UseVisualStyleBackColor = true;
@@ -92,7 +81,6 @@
             this.Controls.Add(this.btnAddProj);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnRunProject);
-            this.Controls.Add(this.btnTestDB);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -100,8 +88,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnTestDB;
         private System.Windows.Forms.Button btnRunProject;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnAddProj;

@@ -16,6 +16,10 @@ namespace _225_Final_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            //Deletes all the files
+            Directory.Delete("Temp");
+            ErrorLogging.Logging.Output("End of Program!", ErrorLogging.Logging.ErrorLevel.None);
         }
     }
 }

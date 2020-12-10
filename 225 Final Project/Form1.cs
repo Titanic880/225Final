@@ -67,10 +67,6 @@ namespace _225_Final_Project
             //Saves to the savefile
             savefile.Save(ProjectsPath, ProjectsName);
             savefile.SerializeClass(SerializedLoc);
-
-            //Deletes all the files
-            Directory.Delete("Temp");
-            Logging.Output("End of Program!", Logging.ErrorLevel.None);
         }
 
         private void BtnErrorChage_Click(object sender, EventArgs e)
@@ -111,25 +107,15 @@ namespace _225_Final_Project
             }
         }
 
-        private void BtnTestDB_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-
         #region FileManip
         private void BtnRunProject_Click(object sender, EventArgs e)
         {
             //Must be at the top, checks index of listbox
             if (listBox1.SelectedIndex >= ProjectsPath.Count || listBox1.SelectedIndex < 0)
                 listBox1.SelectedIndex = 0;
-            string copypath = ProjectsPath[listBox1.SelectedIndex] + listBox1.SelectedItem;
-            string runpath = "Temp\\" + listBox1.SelectedItem;
+            string path = ProjectsPath[listBox1.SelectedIndex] + listBox1.SelectedItem;
 
-           //if(listBox1.SelectedItem.ToString().Split('.')[1].ToLower() != ".csproj")
-           //    copypath = projectsPath[listBox1.SelectedIndex] + listBox1.SelectedItem;
-            CopyDir(copypath);
-            RunDir(runpath);
+            RunDir(path);
         }
 
         private void BtnAddProj_Click(object sender, EventArgs e)
@@ -154,21 +140,16 @@ namespace _225_Final_Project
             listBox1.Update();
         }
 
-        private void CopyDir(string SourceFilePath)
-        {
-            if (!File.Exists("Temp"))
-                Directory.CreateDirectory("Temp");
-
-            //if (File.Exists("Temp\\File"))
-            //    File.Delete("Temp\\" + listBox1.SelectedItem);
-
-            if(!File.Exists("Temp\\"+listBox1.SelectedItem))
-                File.Copy(SourceFilePath, "Temp\\" + listBox1.SelectedItem);
-        }
-
         private void RunDir(string FilePath)
         {
-            System.Diagnostics.Process.Start(FilePath);
+            //https://stackoverflow.com/questions/1283584/how-do-i-launch-files-in-c-sharp
+            //FULL CREDIT TO THIS PERSON
+            System.Diagnostics.Process proc = new System.Diagnostics.Process();
+            proc.EnableRaisingEvents = false;
+            proc.StartInfo.FileName = FilePath;
+            proc.Start();
+
+            //System.Diagnostics.Process.Start(FilePath);
         }
 
         /// <summary>
